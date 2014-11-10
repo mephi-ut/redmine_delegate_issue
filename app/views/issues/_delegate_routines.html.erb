@@ -7,5 +7,6 @@
 		# Setting the parent task for the new issue
 		@copy_from['parent_id'] = @copy_from['id']
 		@issue['parent_id'] = @copy_from['parent_id']
+		@issue['assigned_to_id'] = nil
 	end
 %>

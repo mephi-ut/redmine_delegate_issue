@@ -1,0 +1,11 @@
+<%
+	if params[:as_subtask]
+		# Faking that the original issue is a leaf (to do not copy subtasks)
+		@copy_from['lft'] = 0
+		@copy_from['rgt'] = 1
+
+		# Setting the parent task for the new issue
+		@copy_from['parent_id'] = @copy_from['id']
+		@issue['parent_id'] = @copy_from['parent_id']
+	end
+%>

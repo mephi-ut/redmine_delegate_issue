@@ -8,5 +8,7 @@
 		@copy_from['parent_id'] = @copy_from['id']
 		@issue['parent_id'] = @copy_from['parent_id']
 		@issue['assigned_to_id'] = nil
+		project = Project.where(:identifier => User.current.login).first
+		@issue['project_id'] = project.id unless project.nil?
 	end
 %>

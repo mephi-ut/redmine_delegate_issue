@@ -1,3 +1,7 @@
 ru:
   button_delegate: 'Делегировать'
   descr_delegated: 'Делегировано'
+  label_issue_delegate: 'Делегировать'
+  delegate_to: "Кому"
+  label_delegated_to: 'делегировано в'
+  label_delegated_from: 'делегировано из'

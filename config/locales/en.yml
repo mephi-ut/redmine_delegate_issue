@@ -1,3 +1,7 @@
 en:
   button_delegate: 'Delegate'
   descr_delegated: 'Delegated'
+  label_issue_delegate: 'Delegate'
+  label_delegated_to: 'delegated to'
+  label_delegated_from: 'delegated from'
+  delegate_to: "To"

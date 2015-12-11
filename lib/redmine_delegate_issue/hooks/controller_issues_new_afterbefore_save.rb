@@ -7,6 +7,10 @@ class DelegateIssuePluginListener < Redmine::Hook::Listener
 		#context[:issue].parent_id = context[:params]["copy_from"]
 		context[:issue]['subject'] = "(#{l(:descr_delegated)}) #{context[:issue]['subject']}"
 		#abort(context[:params].to_yaml)
+		@delegate_from = Issue.find_by_id(context[:params]["delegate_from"]);
+		context[:issue].attachments = @delegate_from.attachments.map do |attachement|
+			attachement.copy(:container => context[:issue])
+		end
 	end
 	def controller_issues_new_after_save(context = {})
 		return unless context[:params]["delegate"] == "true"

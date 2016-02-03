@@ -3,7 +3,7 @@
 class DelegateIssuePluginListener < Redmine::Hook::Listener
 	def controller_issues_new_before_save(context = {})
 		return unless context[:params]["delegate"] == "true"
-		context[:issue].project    = Project.where(:identifier => context[:issue].assigned_to.login).first
+		context[:issue].project    = Project.where(:identifier => User.find(context[:params][:issue][:assigned_to_id]).login).first
 		#context[:issue].parent_id = context[:params]["copy_from"]
 		context[:issue]['subject'] = "(#{l(:descr_delegated)}) #{context[:issue]['subject']}"
 		#abort(context[:params].to_yaml)
